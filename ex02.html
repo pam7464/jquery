@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>선택자</title>
+    <style>
+        .sec01::before{
+            content:'안녕하세요';
+            display:block;
+            font-size:50px;
+        }
+    </style>
 </head>
 <body>
     <h1>직접선택자</h1>
@@ -52,6 +59,9 @@
             $('li:nth-child(2n').css({
                 color:'cyan',
             })
+            // $('.sec01::before').css({
+            //     fontSize:'100px',
+            // })
         })
     </script>
 </body>
