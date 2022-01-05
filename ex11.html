@@ -31,6 +31,7 @@
             top:100px;
             bottom:100px;
             background-color:green;
+            transition:left 0.3s linear;
         }
     </style>
 
@@ -68,18 +69,12 @@
             console.log('보더 박스의 높이 = ' + $('.box').outerHeight());
             $('button').click(function(){
                 $('.box').outerHeight(500);
-            })
-
-            // 포지션 좌표(position().left|top)
-            console.log($('h1').position().left);
-            console.log($('h1').position().top);
-            
+            })            
         })
     </script>
 </head>
 <body>
-    <button type="button">클릭1</button>
-    <input type="button" value="클릭2">
+    <button type="button">클릭1</button>    
     <div class="box">
         <h1>박스</h1>
     </div>
