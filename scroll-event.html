@@ -68,13 +68,19 @@
             setTimeout(function(){
                 let item1 = $('.sec01 .box01');
                 let item2 = $('.sec01 .box02');
-                loadEvent1(item1,item2);
+                loadEvent(item1,item2);
             },1000);
+            
             setTimeout(function(){
-                loadEvent2();
+                let item1 = $('.sec01 .box03');
+                let item2 = $('.sec01 .box04');
+                loadEvent(item1,item2);
             },1600);
+            
             setTimeout(function(){
-                loadEvent3();
+                let item1 = $('.sec01 .box05');
+                let item2 = $('.sec01 .box06');
+                loadEvent(item1,item2);
             },2200);
             
             let winHeight = $(window).height();
