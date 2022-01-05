@@ -68,6 +68,9 @@
             let sec03Box =  $('.sec03 div[class*="box0"]');
             let sec04Box =  $('.sec04 div[class*="box0"]');
             let sec05Box =  $('.sec05 div[class*="box0"]');
+            
+            fnFlexItemWidth(); 
+
             let winHeight = $(window).height();
             let sec01OffsetTop = $('.sec01').offset().top;
             let sec02OffsetTop = $('.sec02').offset().top;
@@ -75,9 +78,9 @@
             let sec04OffsetTop = $('.sec04').offset().top;
             let sec05OffsetTop = $('.sec05').offset().top;
             let windowScrollTop;
-            
-            fnFlexItemWidth();
+
             loadEventS(sec01Box[0],sec01Box[1],sec01Box[2],sec01Box[3],sec01Box[4],sec01Box[5],1000);
+
 
             $(window).scroll(function(){
                 windowScrollTop = $(window).scrollTop();
