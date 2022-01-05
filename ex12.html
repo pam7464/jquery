@@ -7,8 +7,21 @@
     <title>박스의 위치</title>
     <style>
         *{box-sizing: border-box;margin:0;padding:0;}
+        button,input{
+            position:fixed;
+            left:50%;
+            top:50%;
+            transform:translate(-50%,-50%);
+            z-index:10;
+            width:100px;
+            height:30px;
+        }
+        input{
+            top:60%;
+        }
         .par-box{
             position:relative;
+            z-index:1;
             width:500px;
             height:3000px;
             margin:100px auto;
@@ -44,11 +57,29 @@
                 left:100,
                 top:0,
             })
+
+            // 윈도우 스크롤 위치 조회/설정(scrollTop(),scrollTop(값),scrollLeft(),scrollLeft(값))
+            scrTop();
+            $(window).scroll(function(){
+                scrTop();
+            })
+
+            function scrTop(){
+                console.log($(window).scrollTop());
+            }
+
+            $('input').click(function(){
+                let winTop = $(window).scrollTop();
+                let newWinTop = winTop + 100;
+                $(window).scrollTop(newWinTop);
+                // $(window).scrollTop($(window).scrollTop() + 100);
+            })
         })
     </script>
 </head>
 <body>
     <button>click</button>
+    <input type="button" value="100px 스크롤">
     <div class="par-box">
         <div class="child-box"></div>
     </div>
