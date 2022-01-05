@@ -93,19 +93,25 @@
 
             $(window).scroll(function(){
                 windowScrollTop = $(window).scrollTop();
-                console.log(windowScrollTop,sec02OffsetTop);
                 
-                if(windowScrollTop > sec02OffsetTop - winHeight / 1.5){
-                    let sec2_1 = $('.sec02 .box01');
-                    let sec2_2 = $('.sec02 .box02');
-                    sec2_1.css({
-                        transform:'translateX(0)',
-                        opacity:'1',
-                    })
-                    sec2_2.css({
-                        transform:'translateX(0)',
-                        opacity:'1',
-                    })
+                if(windowScrollTop > sec02OffsetTop - winHeight * 0.6){
+                    setTimeout(function(){
+                        let item1 = $('.sec02 .box01');
+                        let item2 = $('.sec02 .box02');
+                        loadEvent(item1,item2);
+                    },0)
+                    setTimeout(function(){
+                        let item1 = $('.sec02 .box03');
+                        let item2 = $('.sec02 .box04');
+                        loadEvent(item1,item2);
+                    },600)
+                    setTimeout(function(){
+                        let item1 = $('.sec02 .box05');
+                        let item2 = $('.sec02 .box06');
+                        loadEvent(item1,item2);
+                    },1200)
+
+                        
                 }
             })
             

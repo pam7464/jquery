@@ -14,5 +14,4 @@ function loadEvent(leftBox,rightBox){
         transform:'translateX(0)',
         opacity:'1',
     })
-
 }
