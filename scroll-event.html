@@ -7,7 +7,32 @@
     <title>스크롤 이벤트</title>
     <style>
         *{box-sizing:border-box;margin:0;padding:0;}
-
+        .wrap{
+            width:100%;
+            overflow:hidden;
+        }
+        .sec{
+            margin-bottom:50px;
+            background-color:rgba(0,0,0,0.1);
+        }
+        .sec:last-of-type{
+            margin-bottom:0;
+        }
+        .container{
+            width:1200px;
+            margin:0 auto;
+            padding:12px;
+            background-color: rgba(0,0,0,0.1);
+        }
+        .flex-box{
+            display:flex;
+            flex-flow:row wrap;
+            justify-content: space-between;
+        }
+        .flex-box>div{
+            /* width:582px; */
+            background-color:rgba(0,0,0,0.1);
+        }
     </style>
     <script src="./js/jquery-3.6.0.js"></script>
     <script>
