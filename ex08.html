@@ -12,6 +12,8 @@
     <div>
         <input type="text" id="input02" class="txt-box">
     </div>
+
+    
     <script>
         $(function(){
             console.log($('#input01').is(':visible'));
@@ -21,11 +23,10 @@
                     height:'100px',
                 })
             }
-            if($('#input01').parent().is('body')){
-                $('#input01').css({
-                    color:'red',
-                })
-            }
+            console.log($('#input01').parent().is('body'));
+            
+            let inBox = $('input').get(1);
+            inBox.style.color='green';
         })
     </script>
 </body>
