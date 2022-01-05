@@ -63,25 +63,18 @@
     <script src="./js/my-function.js"></script>
     <script>
         $(function(){
+            let sec01Box =  $('.sec01 div[class*="box0"]');
+            let sec02Box =  $('.sec02 div[class*="box0"]');
+            let sec03Box =  $('.sec03 div[class*="box0"]');
+            let sec04Box =  $('.sec04 div[class*="box0"]');
+            let sec05Box =  $('.sec05 div[class*="box0"]');
             
             fnFlexItemWidth();
-            setTimeout(function(){
-                let item1 = $('.sec01 .box01');
-                let item2 = $('.sec01 .box02');
-                loadEvent(item1,item2);
-            },1000);
+            loadEventS(sec01Box[0],sec01Box[1],sec01Box[2],sec01Box[3],sec01Box[4],sec01Box[5],1000);
+
+
             
-            setTimeout(function(){
-                let item1 = $('.sec01 .box03');
-                let item2 = $('.sec01 .box04');
-                loadEvent(item1,item2);
-            },1600);
             
-            setTimeout(function(){
-                let item1 = $('.sec01 .box05');
-                let item2 = $('.sec01 .box06');
-                loadEvent(item1,item2);
-            },2200);
             
             let winHeight = $(window).height();
             let sec01OffsetTop = $('.sec01').offset().top;
@@ -95,23 +88,16 @@
                 windowScrollTop = $(window).scrollTop();
                 
                 if(windowScrollTop > sec02OffsetTop - winHeight * 0.6){
-                    setTimeout(function(){
-                        let item1 = $('.sec02 .box01');
-                        let item2 = $('.sec02 .box02');
-                        loadEvent(item1,item2);
-                    },0)
-                    setTimeout(function(){
-                        let item1 = $('.sec02 .box03');
-                        let item2 = $('.sec02 .box04');
-                        loadEvent(item1,item2);
-                    },600)
-                    setTimeout(function(){
-                        let item1 = $('.sec02 .box05');
-                        let item2 = $('.sec02 .box06');
-                        loadEvent(item1,item2);
-                    },1200)
-
-                        
+                    loadEventS(sec02Box[0],sec02Box[1],sec02Box[2],sec02Box[3],sec02Box[4],sec02Box[5],0);    
+                }
+                if(windowScrollTop > sec03OffsetTop - winHeight * 0.6){
+                    loadEventS(sec03Box[0],sec03Box[1],sec03Box[2],sec03Box[3],sec03Box[4],sec03Box[5],0);    
+                }
+                if(windowScrollTop > sec04OffsetTop - winHeight * 0.6){
+                    loadEventS(sec04Box[0],sec04Box[1],sec04Box[2],sec04Box[3],sec04Box[4],sec04Box[5],0);    
+                }
+                if(windowScrollTop > sec05OffsetTop - winHeight * 0.6){
+                    loadEventS(sec05Box[0],sec05Box[1],sec05Box[2],sec05Box[3],sec05Box[4],sec05Box[5],0);    
                 }
             })
             
