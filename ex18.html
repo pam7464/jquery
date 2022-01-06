@@ -23,24 +23,43 @@
         li{
             flex:1;
             margin-right:20px;
-            border:2px solid red;
-            background-color:rgba(0,0,0,0.2);
             text-align:center;
         }
     </style>
     <script src="./js/jquery-3.6.0.js"></script>
     <script>
         $(function(){
+            // CSS Hover 비슷
             $('#ul01').mouseover(function(){
-                $(this).css({
-                    fontWeight:'900',
+                $(this).children().css({
+                    backgroundColor:'rgba(0,0,0,0.2)',
                 })
             })
+
+            // CSS Not Hover 비슷
             $('#ul01').mouseout(function(){
-                $(this).css({
-                    fontWeight:'400',
+                $(this).children().css({
+                    border:'2px solid red',
                 })
             })
+
+            // CSS Hover
+            $('#ul02').mouseenter(function(){
+                $(this).children().css({
+                    backgroundColor:'rgba(0,0,0,0.2)',
+                })
+            })
+
+            // CSS Not Hover
+            $('#ul02').mouseleave(function(){
+                $(this).children().css({
+                    border:'2px solid red',
+                })
+            })
+
+
+            
+
         })
     </script>
 </head>
