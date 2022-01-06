@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+    <style>
+        *{box-sizing: border-box;margin: 0;padding: 0;}
+        .btn,.box{
+            display:inline-block;
+            width:150px;
+            height:80px;
+            margin:20px;
+            border:1px solid black;
+            text-align:center;
+            line-height:80px;
+        }
+    </style>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            document.getElementById('btn02').onclick = function(){
+                $('#box02').css({
+                    'font-size':'24px',
+                }) 
+            }
+
+            document.getElementById('btn03').addEventListener('click',function(){
+                $('#box03').css({
+                    'font-size':'24px',
+                }) 
+            })
+        
+            $('#btn04').click(function(){
+                $('#box04').css({
+                    'font-size':'24px',
+                })
+            })
+
+            $('#btn05').on({
+                'click':function(){
+                    $('#box05').css({
+                        'font-size':'24px',
+                    })
+                },
+            })
+            
+            $('#btn01').off('click');
+            $('#btn02').off('click');
+            $('#btn03').off('click');
+            $('#btn04').off('click');
+            $('#btn05').off('click');
+
+        })
+    </script>
+</head>
+<body>
+    <input type="button" value="클릭1" id="btn01" class="btn" onclick="
+        $('#box01').css({
+            'font-size':'24px',
+        })
+    ">
+    <input type="button" value="클릭2" id="btn02" class="btn">
+    <input type="button" value="클릭3" id="btn03" class="btn">
+    <input type="button" value="클릭4" id="btn04" class="btn">
+    <input type="button" value="클릭5" id="btn05" class="btn">
+    <br>
+    <div class="box" id="box01">박스1</div>
+    <div class="box" id="box02">박스2</div>
+    <div class="box" id="box03">박스3</div>
+    <div class="box" id="box04">박스4</div>
+    <div class="box" id="box05">박스5</div>
+</body>
+</html>
