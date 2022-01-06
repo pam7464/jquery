@@ -20,17 +20,23 @@
     <script src="./js/jquery-3.6.0.js"></script>
     <script>
         $(function(){
-            document.getElementById('btn02').onclick = function(){
+            let tri01 = document.getElementById('btn01');
+            let tri02 = document.getElementById('btn02');
+            let tri03 = document.getElementById('btn03');
+
+            tri02.onclick = function(){
                 $('#box02').css({
                     'font-size':'24px',
                 }) 
             }
 
-            document.getElementById('btn03').addEventListener('click',function(){
+            function btn03Event(){
                 $('#box03').css({
                     'font-size':'24px',
                 }) 
-            })
+            }
+
+            tri03.addEventListener('click',btn03Event);
         
             $('#btn04').click(function(){
                 $('#box04').css({
@@ -45,10 +51,11 @@
                     })
                 },
             })
-            
-            $('#btn01').off('click');
-            $('#btn02').off('click');
-            $('#btn03').off('click');
+           
+            tri01.removeAttribute('onclick');
+            tri02.onclick=null;
+            tri03.removeEventListener('click',btn03Event);
+           
             $('#btn04').off('click');
             $('#btn05').off('click');
 
