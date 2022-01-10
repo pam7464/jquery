@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스 이벤트 개체</title>
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0;}
+        .wrap{
+            width:500px;
+            height:300px;
+            margin:20px auto;
+            border:10px solid black;
+
+            display:flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size:50px;
+        }
+    </style>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('.wrap').on({
+                'click':function(event){
+                    // 마우스 이벤트 객체 - 마우스 위치(보이는 화면 기준)(.clientX,.clientY)
+                    console.log('현재 마우스의 X출 좌표는 :' + event.clientX);
+                    console.log('현재 마우스의 Y출 좌표는 :' + event.clientY);
+                    // 마우스 이벤트 객체 - 마우스 위치(문서기준)(.pageX,.pageY)
+                    console.log('현재 마우스의 X출 좌표는 :' + event.pageX);
+                    console.log('현재 마우스의 Y출 좌표는 :' + event.pageY);
+                    // 마우스 이벤트 객체 - 마우스 위치(모니터 기준)(.screenX,.screenY)
+                    console.log('현재 마우스의 X출 좌표는 :' + event.screenX);
+                    console.log('현재 마우스의 Y출 좌표는 :' + event.screenY);                   
+                    // 마우스 이벤트 객체 - 마우스 위치(대상 기준)(.offsetX,.offsetY)
+                    console.log('현재 마우스의 X출 좌표는 :' + event.offsetX);
+                    console.log('현재 마우스의 Y출 좌표는 :' + event.offsetY);
+                },                
+            })
+
+            // $(document).on({
+            //     'mousewheel':function(event){
+            //         console.log('마우스의 방향 : ' + event.delta);
+            //     }
+            // })
+        })
+    </script>
+</head>
+<body>
+    <div class="wrap wrap01">박스1</div>
+    <div class="wrap wrap02">박스2</div>
+    <div class="wrap wrap03">박스3</div>
+    <div class="wrap wrap04">박스4</div>
+    <div class="wrap wrap05">박스5</div>
+</body>
+</html>
