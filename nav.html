@@ -28,7 +28,7 @@
             width:1200px;
             margin:0 auto;
             padding:12px;
-            background-color:rgba(0,0,0,0.2);
+            /* background-color:rgba(0,0,0,0.2); */
         }
         .header .inner{
             display:flex;
@@ -44,15 +44,25 @@
         .first-nav>li{
             width:150px;
             text-align:center;            
-            background-color:rgba(0,0,0,0.2);
+            /* background-color:rgba(0,0,0,0.2); */
             position:relative;
         }
-        .first-nav ul{
+        .second-nav{
             position:absolute;
             left:0;
-            top:200%;
+            right:0;
+            top:100%;
+            padding-top:30px;
             display:none;
+            /* height:0;
+            overflow:hidden; */
+            /* background-color:rgba(0,0,0,0.2); */
+            /* transition:0.3s; */
         }
+        /* .second-nav.active{ */
+            /* display:block; */
+            /* height:300px; */
+        /* } */
 
 
 
@@ -63,14 +73,19 @@
             // $('.first-nav').mouseenter(function(){
 
             // })
-            $('.first-nav li').on({
+            $('.first-nav>li').on({
                 'mouseenter':function(){
+                    // $('.second-nav').removeClass('active');
+                    // $(this).find('.second-nav').addClass('active');
+                    $('.second-nav').slideUp(300);
                     $(this).find('.second-nav').slideDown(300);
                 },
+            })
+            $('.second-nav').on({
                 'mouseleave':function(){
-                    $(this).find('.second-nav').slideUp(300);
-                },
-
+                    // $(this).removeClass('active');
+                    $(this).slideUp(300);
+                }
             })
 
         })
