@@ -216,21 +216,42 @@
 
             // 패이지버튼
             $('.btn-page').click(function(){
-                let cnt = $(this).index();
+                cnt = $(this).index();
                 active(cnt);
                 console.log(cnt)
                 if(cnt==0){
-                    $('.slide').eq(cnt).animate({left:0});
+                    $('.slide').eq(cnt).animate({left:'0%'});
                     $('.slide').eq(cnt+1).animate({left:'100%'});
                     $('.slide').eq(cnt+2).animate({left:'200%'});
                     $('.slide').eq(cnt+3).animate({left:'300%'});
                     $('.slide').eq(cnt+4).animate({left:'400%'});
                 }else if(cnt==1){
-                    $('.slide').eq(cnt).animate({left:0});
+                    $('.slide').eq(cnt-1).animate({left:'-100%'});
+                    $('.slide').eq(cnt).animate({left:'0%'});
                     $('.slide').eq(cnt+1).animate({left:'100%'});
                     $('.slide').eq(cnt+2).animate({left:'200%'});
                     $('.slide').eq(cnt+3).animate({left:'300%'});
+                    
+                }else if(cnt==2){
+                    $('.slide').eq(cnt-2).animate({left:'-200%'});
                     $('.slide').eq(cnt-1).animate({left:'-100%'});
+                    $('.slide').eq(cnt).animate({left:'0%'});
+                    $('.slide').eq(cnt+1).animate({left:'100%'});
+                    $('.slide').eq(cnt+2).animate({left:'200%'});
+                    
+                }else if(cnt==3){
+                    $('.slide').eq(cnt-3).animate({left:'-300%'});
+                    $('.slide').eq(cnt-2).animate({left:'-200%'});
+                    $('.slide').eq(cnt-1).animate({left:'-100%'});
+                    $('.slide').eq(cnt).animate({left:'0%'});
+                    $('.slide').eq(cnt+1).animate({left:'100%'});
+                    
+                }else if(cnt==4){
+                    $('.slide').eq(cnt-4).animate({left:'-400%'});
+                    $('.slide').eq(cnt-3).animate({left:'-300%'});
+                    $('.slide').eq(cnt-2).animate({left:'-200%'});
+                    $('.slide').eq(cnt-1).animate({left:'-100%'});
+                    $('.slide').eq(cnt).animate({left:'0%'});                    
                 }
             })
 
