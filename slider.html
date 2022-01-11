@@ -9,6 +9,8 @@
         *{box-sizing:border-box;margin:0;padding:0;}
         ul,ol,li{list-style:none;}
         a{color:#000;text-decoration:none;}
+        .clearfix::after{content:'';display:block;clear:both;
+        }
 
         .wrap{
             width:100%;
@@ -48,7 +50,7 @@
             top:0;
             bottom:0;
             
-            padding:12px;
+            padding:50px 12px 12px;
             background-color:#aaa;
             display:none;
         }
@@ -59,31 +61,120 @@
             cursor:pointer;
             width:30px;
             height:30px;
-            background-color: rgba(0,0,0,0.2);
+        }
+        .btn-close::before,.btn-close::after{
+            content:'';
+            display:block;
+            width:42px;
+            height:2px;
+            background-color:#333;
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform:translate(-50%,-50%) rotate(45deg);
+        }
+        .btn-close::after{
+            transform:translate(-50%,-50%) rotate(-45deg);
         }
 
         .nav li{
             margin: 20px 0;
             font-size:20px;
         }
+        .slider{
+            position:relative;
+        }
+        .btn-move{
+            position:absolute;
+            left:0;
+            right:0;
+            top:50%;
+            z-index:100;
+            transform:translateY(-50%);
+            padding:12px;
+        }
+        .btn-move>div{cursor:pointer;background-color: red;}
+        .btn-prev{float:left;}
+        .btn-next{float:right;}
 
+        .slides{
+            position:relative;
+            z-index:50;
+            height:400px;
+        }
+        .slides>.slide{
+            position:absolute;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+            background-color:red;
+            font-weight:900;
+            font-size:50px;
+            color:#fff;
+            text-align:center;
+            line-height:400px;
+        }
+        .slides>.slide:nth-child(2){
+            left:100%;
+            background-color:green;
+        }
+        .slides>.slide:nth-child(3){
+            left:200%;
+            background-color:blue;
+        }
+        .slides>.slide:nth-child(4){
+            left:300%;
+            background-color:cyan;
+        }
+        .slides>.slide:nth-child(5){
+            left:400%;
+            background-color:magenta;
+        }
 
     </style>
     <script src="./js/jquery-3.6.0.js"></script>
     <script>
         $(function(){
+            // 네비게이션 클로즈버튼 생성
             $('.nav').prepend('<div class="btn-close"/>');            
 
+            // 네비게이션 호출
             $('.btn-nav').on({
                 'click':function(){
                     $('.nav').slideDown(300);
                 }
             })
+            
+            // 네비게이션 닫기
             $('.btn-close').on({
                 'click':function(){
                     $('.nav').slideUp(300);
                 }
             })
+        
+            //이전 슬라이드 이동
+            $('.btn-prev').on({
+                'click':function(){
+                    slider(100);
+                }
+            })
+
+            //다음 슬라이드 이동
+            $('.btn-next').on({
+                'click':function(){
+                    slider(-100);
+                }
+            })
+
+            function slider(leftVal){
+                if(){
+                    $('.slide').animate({left:'+=100%'},300);
+                }else{
+                    $('.slide').animate({left:'-=100%'},300);
+                }
+            }
+
         })
     </script>
 </head>
@@ -107,9 +198,9 @@
             </nav>
         </header>
         <section class="sec slider">
-            <div class="btn-move">
-                <div class="btn-prev"></div>
-                <div class="btn-next"></div>
+            <div class="btn-move clearfix">
+                <div class="btn-prev">이전</div>
+                <div class="btn-next">다음</div>
             </div>
             <div class="slides">
                 <div class="slide slide01">슬라이드1</div>
