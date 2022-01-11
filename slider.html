@@ -132,6 +132,31 @@
             background-color:magenta;
         }
 
+        .btn-pagers{
+            position:absolute;
+            left:0;
+            right:0;
+            bottom:30px;
+            z-index:100;
+            /* background-color:rgba(0,0,0,0.5); */
+            text-align:center;
+        }
+        .btn-page{
+            display:inline-block;
+            width:20px;
+            height:20px;
+            margin:0 6px;
+            border-radius:50%;
+            background-color:#999;
+            text-indent:-99999px;
+            cursor:pointer;
+            transition:0.1s;
+        }
+        .btn-page:hover,.btn-page.active{
+            background-color:#000;
+        }
+
+
     </style>
     <script src="./js/jquery-3.6.0.js"></script>
     <script>
@@ -167,14 +192,52 @@
                 }
             })
 
+
+            // 슬라이더 함수
+            let cnt = 0;
             function slider(leftVal){
-                if(){
+                if(leftVal>0){
+                    // 이전
+                    if(--cnt<0){
+                        cnt = 0;
+                        return false;
+                    }                    
                     $('.slide').animate({left:'+=100%'},300);
                 }else{
+                    // 이후                    
+                    if(++cnt>4){
+                        cnt=4;
+                        return false;
+                    }                    
                     $('.slide').animate({left:'-=100%'},300);
                 }
+                active(cnt);
             }
 
+            // 패이지버튼
+            $('.btn-page').click(function(){
+                let cnt = $(this).index();
+                active(cnt);
+                console.log(cnt)
+                if(cnt==0){
+                    $('.slide').eq(cnt).animate({left:0});
+                    $('.slide').eq(cnt+1).animate({left:'100%'});
+                    $('.slide').eq(cnt+2).animate({left:'200%'});
+                    $('.slide').eq(cnt+3).animate({left:'300%'});
+                    $('.slide').eq(cnt+4).animate({left:'400%'});
+                }else if(cnt==1){
+                    $('.slide').eq(cnt).animate({left:0});
+                    $('.slide').eq(cnt+1).animate({left:'100%'});
+                    $('.slide').eq(cnt+2).animate({left:'200%'});
+                    $('.slide').eq(cnt+3).animate({left:'300%'});
+                    $('.slide').eq(cnt-1).animate({left:'-100%'});
+                }
+            })
+
+            function active(acIdx){
+                $('.btn-page').removeClass('active');
+                $('.btn-page').eq(acIdx).addClass('active');
+            }
         })
     </script>
 </head>
@@ -210,7 +273,7 @@
                 <div class="slide slide05">슬라이드5</div>
             </div>
             <div class="btn-pagers">
-                <div class="btn-page btn-page01">1</div>
+                <div class="btn-page btn-page01 active">1</div>
                 <div class="btn-page btn-page02">2</div>
                 <div class="btn-page btn-page03">3</div>
                 <div class="btn-page btn-page04">4</div>
