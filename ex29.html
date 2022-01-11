@@ -39,6 +39,20 @@
             color:#fff;
         }
     </style>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('#start').click(function(){
+                $('#move01,#move02,#move03').animate({left:'320px'},1000).animate({top:'340px'},1000).animate({left:'0px'},1000).animate({top:'0px'},1000);
+            })
+            $('#stop').click(function(){
+                $('#move01').stop();
+                $('#move02').clearQueue();
+                // $('#move03').finish();
+                $('#move03').clearQueue().stop();
+            })
+        })
+    </script>
 </head>
 <body>
     <div class="wrap">
