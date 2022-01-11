@@ -72,6 +72,8 @@
                 },300);
             })
 
+
+
             $('#btn09').click(function(){
                 move($('.move-box3'),50);
             })
@@ -80,8 +82,14 @@
             })
 
             function move(target,moveVal){
+                let nowMarLeft = target.css('margin-left');
+                let newMarLeft = Number(nowMarLeft.slice(0,nowMarLeft.length-2));
+                console.log(typeof nowMarLeft);
+                console.log(typeof newMarLeft);
+
+                
                 target.animate({
-                    marginLeft:moveVal,
+                    marginLeft:newMarLeft + moveVal,
                 },300);
             }
         })
